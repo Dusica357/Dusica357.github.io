@@ -1,4 +1,4 @@
-﻿
+
       
         :root {
     --bg-color: #1e1717;   
@@ -28,6 +28,11 @@
             font-weight: 300;
             line-height: 1.65;
             font-size: 14pt;
+            /* Clip the sticky header's edge-to-edge negative margins at the
+               page level. Doing this on body (not #wrapper) keeps the header's
+               position: sticky working, since the wrapper never becomes a
+               scroll container. */
+            overflow-x: hidden;
         }
 
         #wrapper {
@@ -162,7 +167,7 @@
         }
 
         .education-details li:before {
-            content: "â–¹";
+            content: "\25B9";
             position: absolute;
             left: 0;
             color: var(--text-secondary);
@@ -599,7 +604,7 @@
 }
 
 .aws-static-list li::before {
-    content: "â–¹";
+    content: "\25B9";
     position: absolute;
     left: 0;
     color: var(--text-secondary);
@@ -617,7 +622,7 @@
     color: var(--text-secondary);
 }
 
-/* --- Responsive (â‰¤768px) --- */
+/* --- Responsive (max-width 768px) --- */
 @media screen and (max-width: 768px) {
     #aws-skills {
         max-width: 100%;

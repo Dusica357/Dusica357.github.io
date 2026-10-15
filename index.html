@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -187,9 +187,9 @@
     <h2>AWS Skills</h2>
     <div class="aws-skills-layout">
         <div>
-            <!-- Visualization canvas â€” populated by JS -->
+            <!-- Visualization canvas - populated by JS -->
             <div id="aws-skills-canvas" class="aws-canvas" aria-hidden="true"></div>
-            <!-- Static HTML fallback â€” always present in DOM -->
+            <!-- Static HTML fallback - always present in DOM -->
             <div id="aws-skills-static" class="aws-static-list">
                 <article id="static-ec2">
                     <h3>Amazon EC2</h3>
@@ -396,7 +396,7 @@
 
     <script>
     // ================================================================
-    // AWS Skills Explorer â€” Data
+    // AWS Skills Explorer - Data
     // ================================================================
     const AWS_SERVICES = {
         ec2: {
@@ -579,39 +579,39 @@
     // inherit each service's category colour). No network needed.
     // ----------------------------------------------------------------
     const AWS_ICONS = {
-        // Compute â€” server/chip
+        // Compute - server/chip
         ec2: '<rect x="4" y="4" width="16" height="16" rx="1.5"/><rect x="8" y="8" width="8" height="8" rx="1"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="15" x2="4" y2="15"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="15" x2="22" y2="15"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/>',
-        // Lambda â€” lambda glyph
+        // Lambda - lambda glyph
         lambda: '<path d="M6 4h4l6 16h2"/><path d="M18 4h-2l-7 16H6"/>',
-        // S3 â€” bucket
+        // S3 - bucket
         s3: '<path d="M5 6h14l-1.4 13.1a1 1 0 0 1-1 .9H7.4a1 1 0 0 1-1-.9L5 6z"/><ellipse cx="12" cy="6" rx="7" ry="2"/>',
-        // DynamoDB â€” database cylinder
+        // DynamoDB - database cylinder
         dynamodb: '<ellipse cx="12" cy="5" rx="7" ry="2.5"/><path d="M5 5v14c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/>',
-        // SageMaker â€” ML nodes
+        // SageMaker - ML nodes
         sagemaker: '<circle cx="6" cy="7" r="2"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="12" r="2"/><line x1="8" y1="7" x2="16" y2="11"/><line x1="8" y1="17" x2="16" y2="13"/>',
-        // Bedrock â€” layered foundation
+        // Bedrock - layered foundation
         bedrock: '<rect x="4" y="14" width="16" height="5" rx="1"/><rect x="6" y="9" width="12" height="4" rx="1"/><rect x="8" y="4" width="8" height="4" rx="1"/>',
-        // API Gateway â€” hub arrows
+        // API Gateway - hub arrows
         apigateway: '<circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="2" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="22" y2="12"/>',
-        // CloudFront â€” globe
+        // CloudFront - globe
         cloudfront: '<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/>',
-        // IAM â€” shield/key
+        // IAM - shield/key
         iam: '<path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><circle cx="12" cy="10" r="2"/><line x1="12" y1="12" x2="12" y2="16"/>',
-        // VPC â€” network/cloud box
+        // VPC - network/cloud box
         vpc: '<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="1.5"/><circle cx="16" cy="12" r="1.5"/><line x1="9.5" y1="12" x2="14.5" y2="12"/>',
-        // CloudWatch â€” gauge
+        // CloudWatch - gauge
         cloudwatch: '<circle cx="12" cy="13" r="8"/><line x1="12" y1="13" x2="16" y2="9"/><line x1="12" y1="13" x2="12" y2="7"/>',
-        // Step Functions â€” flow
+        // Step Functions - flow
         stepfunctions: '<rect x="3" y="4" width="7" height="5" rx="1"/><rect x="14" y="15" width="7" height="5" rx="1"/><path d="M10 6.5h3a2 2 0 0 1 2 2v7"/>',
-        // Textract â€” document text
+        // Textract - document text
         textract: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="18" x2="12" y2="18"/>',
-        // Comprehend â€” speech/nlp
+        // Comprehend - speech/nlp
         comprehend: '<path d="M4 5h16v11H8l-4 4z"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="12" x2="13" y2="12"/>',
-        // KMS â€” key
+        // KMS - key
         kms: '<circle cx="8" cy="12" r="4"/><line x1="12" y1="12" x2="21" y2="12"/><line x1="17" y1="12" x2="17" y2="16"/><line x1="20" y1="12" x2="20" y2="15"/>',
-        // CodePipeline â€” pipeline arrow
+        // CodePipeline - pipeline arrow
         codepipeline: '<circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><line x1="7.5" y1="12" x2="16.5" y2="12"/><polyline points="13.5,9 16.5,12 13.5,15"/>',
-        // SAM / CloudFormation â€” stacked templates
+        // SAM / CloudFormation - stacked templates
         sam: '<rect x="4" y="4" width="16" height="4" rx="1"/><rect x="4" y="10" width="16" height="4" rx="1"/><rect x="4" y="16" width="16" height="4" rx="1"/>'
     };
 
@@ -621,13 +621,13 @@
         'stepfunctions','textract','comprehend','kms','codepipeline','sam'
     ];
 
-    // Runtime validation â€” catch missing entries immediately
+    // Runtime validation - catch missing entries immediately
     REQUIRED_SERVICES.forEach(function(id) {
         if (!AWS_SERVICES[id]) throw new Error('AWS_SERVICES missing entry: ' + id);
     });
 
     // ================================================================
-    // AWS Skills Explorer â€” Module (IIFE)
+    // AWS Skills Explorer - Module (IIFE)
     // ================================================================
     const awsSkillsExplorer = (function() {
         var lastFocused = null;
@@ -789,7 +789,7 @@
     }
 
     // ================================================================
-    // Contact form â€” submit to Formspree via fetch (stay on page)
+    // Contact form - submit to Formspree via fetch (stay on page)
     // ================================================================
     function initContactForm() {
         var form = document.getElementById('contact-form');
