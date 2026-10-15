@@ -15,13 +15,13 @@
             <p>Cloud Application Developer | AWS Certified Cloud Practitioner</p>
             <nav>
                 <ul>
-                    <li><a href="#about" onclick="showSection('about')">About</a></li>
-                    <li><a href="#education" onclick="showSection('education')">Education</a></li>
-                    <li><a href="#certifications" onclick="showSection('certifications')">Certifications</a></li>
-                    <li><a href="#projects" onclick="showSection('projects')">Projects</a></li>
-                    <li><a href="#skills" onclick="showSection('skills')">Skills</a></li>
-                    <li><a href="#aws-skills" onclick="showSection('aws-skills')">AWS Skills</a></li>
-                    <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                    <li><a href="#about" onclick="return showSection('about')">About</a></li>
+                    <li><a href="#education" onclick="return showSection('education')">Education</a></li>
+                    <li><a href="#certifications" onclick="return showSection('certifications')">Certifications</a></li>
+                    <li><a href="#projects" onclick="return showSection('projects')">Projects</a></li>
+                    <li><a href="#skills" onclick="return showSection('skills')">Skills</a></li>
+                    <li><a href="#aws-skills" onclick="return showSection('aws-skills')">AWS Skills</a></li>
+                    <li><a href="#contact" onclick="return showSection('contact')">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -786,6 +786,11 @@
                 link.style.borderColor = 'var(--border-color)';
             }
         });
+        // Always show the newly selected section from the top rather than
+        // letting the browser jump to the anchor mid-page.
+        window.scrollTo(0, 0);
+        // Return false so the inline onclick cancels the default anchor jump.
+        return false;
     }
 
     // ================================================================
